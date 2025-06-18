@@ -14,6 +14,8 @@ A Streamlit app for processing Banners Excel sheets and a product CSV, generatin
 - Download all unique images as PNG zip.
 - Download all images with background removed (via rembg).
 
+The necessary colums needs to be present in the excel sheet, in the following format - Hubs | Product Name | Focused Sub Cat |	MB ID 1 | MB ID 2 |	Banner Call-Out (For Range)
+
 ## How to run
 
 ```bash
