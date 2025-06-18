@@ -4,3 +4,5 @@ openpyxl
 pillow
 rembg
 requests
+onnxruntime
+onnxruntime-gpu
