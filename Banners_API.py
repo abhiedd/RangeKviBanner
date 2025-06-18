@@ -95,6 +95,7 @@ def process_range_dualmrp(df, img_map, add_copy):
     mbid1_col = match_col(cols, "MB ID 1")
     mbid2_col = match_col(cols, "MB ID 2")
     subcat_col = match_col(cols, "Focused Sub Cat")
+    callout_col = match_col(cols, "Banner Call-Out") 
     out = []
     for idx, row in df.iterrows():
         hub = str(row.iloc[0]).strip()
@@ -105,6 +106,7 @@ def process_range_dualmrp(df, img_map, add_copy):
             continue
         pname = row.get(pname_col, "") if pname_col else ""
         subcat = row.get(subcat_col, "") if subcat_col else ""
+        callout = row.get(callout_col, "") if callout_col else "" 
         img_src1 = img_map.get(mbid1, "") if img_map else ""
         img_src2 = img_map.get(mbid2, "") if img_map else ""
         outrow = {
@@ -113,6 +115,7 @@ def process_range_dualmrp(df, img_map, add_copy):
             "MB ID 1": mbid1,
             "MB ID 2": mbid2,
             "Focused Sub Cat": subcat,
+            "Banner Call-Out": callout, 
             "Copy": "",  # Blank for user to fill
             "Img1": mk_mb_img_link(img_src1),
             "Img2": mk_mb_img_link(img_src2),
