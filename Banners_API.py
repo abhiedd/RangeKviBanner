@@ -17,7 +17,7 @@ st.title("Banner Formatter (KVI, Range, Dual MRP) + All_MbIDs Tab + Images")
 st.markdown("""
 **Required Excel Sheet Columns:**
 
-- `Hubs | Product Name | Focused Sub Cat | MB ID 1 | MB ID 2 (Range, Dual MRP) | Name2`
+- `Hubs | Product Name | Focused Sub Cat | MB ID 1 | MB ID 2 (Range, Dual MRP)`
 
 Please ensure your Excel sheet contains these columns with the exact names for proper processing.
 """)
