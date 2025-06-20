@@ -14,11 +14,12 @@ import re
 st.set_page_config(layout="wide")
 st.title("Banner Formatter (KVI, Range, Dual MRP) + All_MbIDs Tab + Images")
 st.markdown("""
-### 📋 **Required Columns for Input Excel File**
+**Required Excel Sheet Columns:**
 
-Your Excel file must have the following columns in the appropriate sheets:
-#### For KVI tab: 'Hub | Product Name | Focused Sub Cat | MB ID 1'
-#### For Range / Dual MRP tabs: 'Hub | Product Name | Focused Sub Cat** | MB ID 1 | MB ID 2 | Banner Call-Out'
+- `Hubs | Product Name | Focused Sub Cat | MB ID 1 | MB ID 2 (Range, Dual MRP) | Name2`
+
+Please ensure your Excel sheet contains these columns with the exact names for proper processing.
+""")
 
 ALLOWED_HUBS = [
     "ggn", "jpr", "ahm", "ind", "mum", "pun", "blr", "hyd", "chn",
