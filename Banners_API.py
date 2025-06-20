@@ -18,6 +18,7 @@ st.markdown("""
 **Required Excel Sheet Columns:**
 
 - `Hubs | Product Name | Focused Sub Cat | MB ID 1 | MB ID 2 (Range, Dual MRP)`
+And Seperate tabs for KVI, Range & Dual MRP banners
 
 Please ensure your Excel sheet contains these columns with the exact names for proper processing.
 """)
