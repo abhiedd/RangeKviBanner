@@ -26,7 +26,7 @@ Please ensure your Excel sheet contains these columns with the exact names for p
 ALLOWED_HUBS = [
     "ggn", "jpr", "ahm", "ind", "mum", "pun", "blr", "hyd", "chn",
     "dlwss", "pbssnurpur", "krssdavanagere", "mgss", "west bengal",
-    "vikaspuri & rp bagh", "nurpur & vr mall"
+    "vikaspuri & rp bagh", "nurpur & vr mall", "SS North", "SS South"
 ]
 def is_hub(val):
     if not isinstance(val, str):
