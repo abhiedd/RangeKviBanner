@@ -80,7 +80,7 @@ def process_kvi(df, img_map):
     out = []
     for idx, row in df.iterrows():
         hub = str(row.iloc[0]).strip()
-        if not is_hub(hub): continue
+        # if not is_hub(hub): continue
         mbid1 = str(row.get(mbid1_col, "")).strip() if mbid1_col else ""
         if not mbid1 or mbid1.lower() == "nan": continue
         pname = row.get(pname_col, "") if pname_col else ""
@@ -108,7 +108,7 @@ def process_range_dualmrp(df, img_map, add_copy):
     out = []
     for idx, row in df.iterrows():
         hub = str(row.iloc[0]).strip()
-        if not is_hub(hub): continue
+        # if not is_hub(hub): continue
         mbid1 = str(row.get(mbid1_col, "")).strip() if mbid1_col else ""
         mbid2 = str(row.get(mbid2_col, "")).strip() if mbid2_col else ""
         if (not mbid1 or mbid1.lower() == "nan") and (not mbid2 or mbid2.lower() == "nan"):
