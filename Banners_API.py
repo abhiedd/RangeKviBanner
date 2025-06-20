@@ -33,7 +33,7 @@ def is_hub(val):
         return False
     s = val.strip().lower()
     for h in ALLOWED_HUBS:
-        if s.startswith(h):
+        if h in s:
             return True
     return False
 
