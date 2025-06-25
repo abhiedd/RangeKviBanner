@@ -263,7 +263,7 @@ if tab_dict:
     )
     
 with st.expander("Preview All_PIDs Tab"):
-    st.dataframe(pd.DataFrame(all_pids_tab))  
+    st.dataframe(pd.DataFrame(all_mbids_tab))  
     
     # Image Download Section
     all_images = collect_all_images(tab_dict)
