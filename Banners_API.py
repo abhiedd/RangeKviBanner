@@ -28,6 +28,16 @@ ALLOWED_HUBS = [
     "dlwss", "pbssnurpur", "krssdavanagere", "mgss", "west bengal",
     "vikaspuri & rp bagh", "nurpur & vr mall", "SS North", "SS South"
 ]
+
+def clean_mbid(val):
+    try:
+        num = float(val)
+        if num.is_integer():
+            return str(int(num))
+        return str(val)
+    except Exception:
+        return str(val).strip()
+        
 def is_hub(val):
     if not isinstance(val, str):
         return False
@@ -81,7 +91,7 @@ def process_kvi(df, img_map):
     for idx, row in df.iterrows():
         hub = str(row.iloc[0]).strip()
         # if not is_hub(hub): continue
-        mbid1 = str(row.get(mbid1_col, "")).strip() if mbid1_col else ""
+        mbid1 = clean_mbid(row.get(mbid1_col, "")) if mbid1_col else ""
         if not mbid1 or mbid1.lower() == "nan": continue
         pname = row.get(pname_col, "") if pname_col else ""
         subcat = row.get(subcat_col, "") if subcat_col else ""
@@ -109,8 +119,8 @@ def process_range_dualmrp(df, img_map, add_copy):
     for idx, row in df.iterrows():
         hub = str(row.iloc[0]).strip()
         # if not is_hub(hub): continue
-        mbid1 = str(row.get(mbid1_col, "")).strip() if mbid1_col else ""
-        mbid2 = str(row.get(mbid2_col, "")).strip() if mbid2_col else ""
+        mbid1 = clean_mbid(row.get(mbid1_col, "")) if mbid1_col else ""
+        mbid2 = clean_mbid(row.get(mbid2_col, "")) if mbid2_col else ""
         if (not mbid1 or mbid1.lower() == "nan") and (not mbid2 or mbid2.lower() == "nan"):
             continue
         pname = row.get(pname_col, "") if pname_col else ""
