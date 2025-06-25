@@ -327,5 +327,5 @@ with st.expander("Preview All_PIDs Tab"):
             file_name="Banner_Images_rembg.zip",
             mime="application/zip"
         )
-else:
+    else:
     st.info("Please upload your Banners Excel (and optionally the product CSV).")
