@@ -263,7 +263,10 @@ if tab_dict:
         file_name="Banners_MultiTab_Output.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
-
+    
+    with st.expander("Preview All_PIDs Tab"):
+    st.dataframe(pd.DataFrame(all_pids_tab))
+    
     # Image Download Section
     all_images = collect_all_images(tab_dict)
     st.markdown("## Download all banner product images")
