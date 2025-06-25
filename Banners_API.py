@@ -264,8 +264,8 @@ with st.expander("Preview All_MBIDs tab"):
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
     
-    with st.expander("Preview All_PIDs Tab"):
-    st.dataframe(pd.DataFrame(all_pids_tab))
+with st.expander("Preview All_PIDs Tab"):
+    st.dataframe(pd.DataFrame(all_pids_tab))  
     
     # Image Download Section
     all_images = collect_all_images(tab_dict)
