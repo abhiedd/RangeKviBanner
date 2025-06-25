@@ -296,7 +296,7 @@ with st.expander("Preview All_PIDs Tab"):
         )
 
     st.markdown("## Download images with background removed (rembg)")
-    if st.button("Download rembg Images.zip"):
+if st.button("Download rembg Images.zip"):
         progress = st.progress(0)
         total = len(all_images)
         zip_buffer = io.BytesIO()
@@ -327,5 +327,5 @@ with st.expander("Preview All_PIDs Tab"):
             file_name="Banner_Images_rembg.zip",
             mime="application/zip"
         )
-    else:
+else:
     st.info("Please upload your Banners Excel (and optionally the product CSV).")
