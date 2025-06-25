@@ -248,7 +248,7 @@ if uploaded_excel:
 if tab_dict:
     all_mbids_tab = create_all_mbids_tab(tab_dict, img_map)
 with st.expander("Preview All_MBIDs tab"):
-    st.dataframe(pd.DataFrame(all_mbids_tab))
+    st.dataframe(pd.DataFrame(all_mbIDs))
     st.success("✅ Processed! Preview tabs below, then download the full Excel output.")
     tab_names = list(tab_dict.keys()) + ["All_MbIDs"]
     selected_tab = st.selectbox("Preview a tab:", tab_names)
