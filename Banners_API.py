@@ -17,7 +17,7 @@ st.title("Banner Formatter (KVI, Range, Dual MRP) + All_MbIDs Tab + Images")
 st.markdown("""
 **Required Excel Sheet Columns:**
 
-- `Hubs | Product Name | Focused Sub Cat | MB ID 1 | MB ID 2 (Range, Dual MRP)`
+- `Hubs | Product Name | Focused Sub Cat | MB ID 1 | MB ID 2 | MB ID 3 (Range, Dual MRP)`
 And Seperate tabs for KVI, Range & Dual MRP banners
 
 Please ensure your Excel sheet contains these columns with the exact names for proper processing.
@@ -113,6 +113,7 @@ def process_range_dualmrp(df, img_map, add_copy):
     pname_col = match_col(cols, "Product Name")
     mbid1_col = match_col(cols, "MB ID 1")
     mbid2_col = match_col(cols, "MB ID 2")
+    mbid3_col = match_col(cols, "MB ID 3")
     subcat_col = match_col(cols, "Focused Sub Cat")
     callout_col = match_col(cols, "Banner Call-Out") 
     out = []
@@ -121,25 +122,30 @@ def process_range_dualmrp(df, img_map, add_copy):
         # if not is_hub(hub): continue
         mbid1 = clean_mbid(row.get(mbid1_col, "")) if mbid1_col else ""
         mbid2 = clean_mbid(row.get(mbid2_col, "")) if mbid2_col else ""
-        if (not mbid1 or mbid1.lower() == "nan") and (not mbid2 or mbid2.lower() == "nan"):
+        mbid3 = clean_mbid(row.get(mbid3_col, "")) if mbid3_col else ""
+        if (not mbid1 or mbid1.lower() == "nan") and (not mbid2 or mbid2.lower() == "nan") and (not mbid3 or mbid3.lower() == "nan"):
             continue
         pname = row.get(pname_col, "") if pname_col else ""
         subcat = row.get(subcat_col, "") if subcat_col else ""
         callout = row.get(callout_col, "") if callout_col else "" 
         img_src1 = img_map.get(mbid1, "") if img_map else ""
         img_src2 = img_map.get(mbid2, "") if img_map else ""
+        img_src3 = img_map.get(mbid3, "") if img_map else ""
         outrow = {
             "Hub": hub,
             "Product Name": pname,
             "MB ID 1": mbid1,
             "MB ID 2": mbid2,
+            "MB ID 3": mbid3,
             "Focused Sub Cat": subcat,
             "Banner Call-Out": callout, 
             "Copy": "",  # Blank for user to fill
             "Img1": mk_mb_img_link(img_src1),
             "Img2": mk_mb_img_link(img_src2),
+            "Img3": mk_mb_img_link(img_src3),
             "AmzId1": mk_amzid_link(img_src1),
-            "AmzId2": mk_amzid_link(img_src2)
+            "AmzId2": mk_amzid_link(img_src2),
+            "AmzId3": mk_amzid_link(img_src3)
         }
         out.append(outrow)
     return out
