@@ -70,9 +70,11 @@ def mk_mb_img_link(img_src):
     if not img_src: return ""
     return f"https://file.milkbasket.com/products/{img_src}"
 
-def mk_amzid_link(img_src):
-    if not img_src: return ""
-    img_src_png = re.sub(r'\.\w+$', '.png', MB_id)
+def make_amz_link(MB_id):
+    # Replace extension with .png and build Figma S3 URL
+    if not MB_id:
+        return ""
+    MB_id_png = re.sub(r'\.\w+$', '.png', MB_id)
     return f"https://design-figma.s3.ap-south-1.amazonaws.com/{MB_id_png}"
 
 def match_col(cols, name):
