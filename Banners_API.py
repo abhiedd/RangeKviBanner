@@ -103,7 +103,8 @@ def process_kvi(df, img_map):
             "Product Name": pname,
             "MB ID 1": mbid1,
             "Focused Sub Cat": subcat,
-            "Img1": mk_mb_img_link(mbid1),
+            "Img1": mk_mb_img_link(img_map.get(mbid1, "")) 
+            if img_map else "",
             "Img2": "",
             "AmzId1": make_amz_link(mbid1),
             "AmzId2": ""
@@ -145,9 +146,9 @@ def process_range_dualmrp(df, img_map, add_copy):
             "Img1": mk_mb_img_link(img_src1),
             "Img2": mk_mb_img_link(img_src2),
             "Img3": mk_mb_img_link(img_src3),
-            "AmzId1": make_amz_link(img_src1),
-            "AmzId2": make_amz_link(img_src2),
-            "AmzId3": make_amz_link(img_src3)
+            "AmzId1": make_amz_link(mbid1),
+            "AmzId2": make_amz_link(mbid2),
+            "AmzId3": make_amz_link(mbid3)
         }
         out.append(outrow)
     return out
@@ -207,7 +208,7 @@ def collect_all_images(tab_dict):
     images = {}
     for tab in tab_dict:
         for row in tab_dict[tab]:
-            for col, pid, linkcol in [("Img1", "MB ID 1", "Img1"), ("Img2", "MB ID 2", "Img2")]:
+            for col, pid, linkcol in [("Img1", "MB ID 1", "Img1"), ("Img2", "MB ID 2", "Img2"), ("Img3", "MB ID 3", "Img3")]:
                 link = row.get(linkcol, "")
                 pid_val = row.get(pid, "")
                 if link and pid_val:
@@ -270,7 +271,6 @@ if tab_dict:
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
     
-all_mbids_tab = []
 if tab_dict:
     all_mbids_tab = create_all_mbids_tab(tab_dict, img_map)
 
