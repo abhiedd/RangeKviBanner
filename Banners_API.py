@@ -10,6 +10,7 @@ import requests
 import zipfile
 import io
 import re
+import os
 
 st.set_page_config(layout="wide")
 st.title("Banner Formatter (KVI, Range, Dual MRP) + All_MbIDs Tab + Images")
@@ -71,8 +72,8 @@ def mk_mb_img_link(img_src):
 
 def mk_amzid_link(img_src):
     if not img_src: return ""
-    img_src_png = re.sub(r'\.\w+$', '.png', img_src)
-    return f"https://design-figma.s3.ap-south-1.amazonaws.com/{img_src_png}"
+    img_src_png = re.sub(r'\.\w+$', '.png', MB_id)
+    return f"https://design-figma.s3.ap-south-1.amazonaws.com/{MB_id_png}"
 
 def match_col(cols, name):
     name_clean = re.sub(r'\s+', '', name).lower()
