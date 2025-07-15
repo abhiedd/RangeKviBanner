@@ -93,7 +93,6 @@ def process_kvi(df, img_map):
     out = []
     for idx, row in df.iterrows():
         hub = str(row.iloc[0]).strip()
-        # if not is_hub(hub): continue
         mbid1 = clean_mbid(row.get(mbid1_col, "")) if mbid1_col else ""
         if not mbid1 or mbid1.lower() == "nan": continue
         pname = row.get(pname_col, "") if pname_col else ""
@@ -104,9 +103,9 @@ def process_kvi(df, img_map):
             "Product Name": pname,
             "MB ID 1": mbid1,
             "Focused Sub Cat": subcat,
-            "Img1": mk_mb_img_link(MB_id),
+            "Img1": mk_mb_img_link(img_src1),
             "Img2": "",
-            "AmzId1": mk_amzid_link(MB_id),
+            "AmzId1": make_amz_link(mbid1),
             "AmzId2": ""
         })
     return out
