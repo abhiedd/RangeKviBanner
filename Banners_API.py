@@ -71,10 +71,13 @@ def mk_mb_img_link(img_src):
     return f"https://file.milkbasket.com/products/{img_src}"
 
 def make_amz_link(MB_id):
-    # Replace extension with .png and build Figma S3 URL
     if not MB_id:
         return ""
-    MB_id_png = re.sub(r'\.\w+$', '.png', MB_id)
+    # If MB_id already ends with an extension, replace it with .png
+    if re.search(r'\.\w+$', MB_id):
+        MB_id_png = re.sub(r'\.\w+$', '.png', MB_id)
+    else:
+        MB_id_png = f"{MB_id}.png"
     return f"https://design-figma.s3.ap-south-1.amazonaws.com/{MB_id_png}"
 
 def match_col(cols, name):
@@ -270,7 +273,11 @@ if tab_dict:
         file_name="Banners_MultiTab_Output.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
-    
+all_mbids_tab = []  
+if all_mbids_tab:
+    st.dataframe(pd.DataFrame(all_mbids_tab))
+else:
+    st.info("No MB IDs available yet.")
 if tab_dict:
     all_mbids_tab = create_all_mbids_tab(tab_dict, img_map)
 
