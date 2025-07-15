@@ -271,6 +271,10 @@ if tab_dict:
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
     
+all_mbids_tab = []
+if tab_dict:
+    all_mbids_tab = create_all_mbids_tab(tab_dict, img_map)
+
 with st.expander("Preview All_PIDs Tab"):
     st.dataframe(pd.DataFrame(all_mbids_tab))  
     
