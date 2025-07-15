@@ -145,9 +145,9 @@ def process_range_dualmrp(df, img_map, add_copy):
             "Img1": mk_mb_img_link(img_src1),
             "Img2": mk_mb_img_link(img_src2),
             "Img3": mk_mb_img_link(img_src3),
-            "AmzId1": mk_amzid_link(img_src1),
-            "AmzId2": mk_amzid_link(img_src2),
-            "AmzId3": mk_amzid_link(img_src3)
+            "AmzId1": make_amz_link(img_src1),
+            "AmzId2": make_amz_link(img_src2),
+            "AmzId3": make_amz_link(img_src3)
         }
         out.append(outrow)
     return out
