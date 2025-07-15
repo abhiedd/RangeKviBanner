@@ -104,9 +104,9 @@ def process_kvi(df, img_map):
             "Product Name": pname,
             "MB ID 1": mbid1,
             "Focused Sub Cat": subcat,
-            "Img1": mk_mb_img_link(img_src1),
+            "Img1": mk_mb_img_link(MB_id),
             "Img2": "",
-            "AmzId1": mk_amzid_link(img_src1),
+            "AmzId1": mk_amzid_link(MB_id),
             "AmzId2": ""
         })
     return out
